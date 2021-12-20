@@ -1,0 +1,33 @@
+#table-alluser{
+    width: 100%;
+    align-items: center;
+}
+#table-head{
+    font-weight: 900;
+    font-size: large;
+}
+#user-img{
+    height:80px;
+    width: auto;
+    border-radius: 8px;
+    float: left;
+}
+#star-img{
+height: 25px;
+width: auto;
+}
+#viewprofilebtn{
+    padding:8px;
+    width:auto;
+   border-radius: 6px;
+
+}
+#viewprofilebtn:hover{
+    background-color: cornflowerblue;
+}
+#user-td{
+    text-align: center;
+}
+#user-ul{
+    list-style-type: none;
+}

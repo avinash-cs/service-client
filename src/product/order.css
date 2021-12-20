@@ -1,0 +1,20 @@
+
+#left-krdo{
+    float: left;
+}
+#right-krdo{
+    float:right;
+}
+.order-cont{
+    margin: 5%;
+    font-size: 12;
+    z-index: 0;
+}
+#margintop-dedo{
+    margin-top: 15px;
+}
+#order-btn{
+    width: auto;
+    padding: 10px;
+    margin: 10px;
+}

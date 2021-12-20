@@ -1,0 +1,12 @@
+#order-btn{
+    width: auto;
+    padding: 10px;
+    margin: 10px;
+}
+.order-cont{
+    margin: 5%;
+    font-size: 12;
+}
+.alert{
+    position: initial;
+}

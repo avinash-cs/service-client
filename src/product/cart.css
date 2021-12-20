@@ -1,0 +1,17 @@
+.cart-img{
+    height: 80px;
+    width: auto;
+}
+
+.for-cart{
+    margin: 2%;
+}
+.for-checkout{
+    margin: 5%;
+    overflow: hidden;
+}
+
+#cart-btn{
+    width: auto;
+    padding: 8px;
+}

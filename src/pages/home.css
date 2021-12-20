@@ -1,0 +1,88 @@
+#row{
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+
+}
+
+#column {
+    flex-grow: 1;
+  flex-basis: 50%;
+}
+
+#col-1{
+    margin-left: 30px;
+    margin-top: 50px;
+}
+#service-img{
+
+margin-top:15%;
+height: 400px;
+width: auto;
+}
+#signup-btn
+{
+    width: 25%;
+}
+#row2{
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+}  
+#row33{
+    width: 100%;
+    display: flex;
+} 
+#column3 {
+   padding: 10px;
+   width: 25%; 
+   text-align: center; 
+    
+}
+#column3:hover{
+    background-color: antiquewhite;
+}
+
+
+@media screen and ( max-width: 500px ) { 
+    #row33 { flex-direction: column;  }  
+    #column3  { width: 100%; } 
+}
+
+
+.margin-dedo{
+    margin-top: 30px;
+}
+  /* Clear floats after the columns */
+
+  #center-it{
+      text-align: center;
+  }
+
+#service-cont{
+    display: flex;
+    text-align: center;
+    align-content: space-around;
+    flex-wrap: wrap;
+   
+}
+#service-icon{
+    height: 64px;
+    width: auto;
+}
+#service{
+    border: 2px solid white;
+    margin:45px;
+    padding:10px;
+    border-radius: 9px;
+}
+#service:hover{
+    background-color: wheat;
+}
+#service a{
+    font-size: 40px;
+    text-decoration: none;
+}
+#our-services{
+    margin-top:50px;
+}

@@ -1,0 +1,24 @@
+#product-card{
+    width:22rem;
+    margin:30px;
+}
+.card-img-top{
+    height: 300px;
+    width: auto;
+}
+.service-name{
+    margin:12px;
+}
+.service-menu{
+    margin:4px;
+    text-align: center;
+}
+.service-product{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+#text-left{
+    margin: 0 5%;
+}
+
