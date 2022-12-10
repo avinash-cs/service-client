@@ -1,5 +1,4 @@
 
-const url = process.env.REACT_APP_BACKEND_URL;
 import {
   ALL_PROFS_FAIL,
   ALL_PROFS_REQUEST,
@@ -36,7 +35,7 @@ import {
   SUBMIT_REVIEW_FAIL,
 } from "../constants/userConstants";
 import axios from "axios";
-var url = "";
+const url = process.env.REACT_APP_BACKEND_URL;
 
 export const registerUser = (userData) => async (dispatch) => {
   try {
