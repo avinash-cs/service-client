@@ -1,0 +1,62 @@
+.reg-body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-setup {
+    max-width: 500px;
+    width: 100%;
+    padding: 50px;
+    background: white;
+    border: 20px solid #1111;
+}
+
+.container-setup .logo {
+    
+    opacity: 0.6;
+    margin-bottom: 20px;
+}
+
+.setup-head2 {
+    color: #1b1b1b;
+}
+
+.setup input {
+    padding: 5px;
+    width: 100%;
+    margin: 10px 0;
+    height: 40px;
+    
+    border-bottom: 1px solid #555;
+}
+
+.setup .input:focus {
+    border-bottom: 1px solid #0067b8;
+}
+
+.btn-container {
+    display: flex;
+}
+
+.btn-container > button {
+    padding: 5px;
+    cursor: pointer;
+}
+
+.btn-container > button:hover {
+    background-color: cadetblue;
+    color: black;
+}
+
+.container-setup .row {
+    position: relative;
+}
+
+.select-style > select {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px;
+    width: 100%;
+}

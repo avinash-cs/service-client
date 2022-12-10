@@ -1,0 +1,26 @@
+.service-cont{
+    display: flex;
+    text-align: center;
+    align-content: space-around;
+    flex-wrap: wrap;
+   
+}
+.service-icon{
+    height: 64px;
+    width: auto;
+}
+.service{
+    
+    border: 2px solid white;
+    margin:30px 80px;
+    width: 180px;
+    padding:8px;
+    border-radius: 9px;
+}
+.service:hover{
+    background-color: wheat;
+}
+.service a{
+    font-size: 40px;
+    text-decoration: none;
+}
