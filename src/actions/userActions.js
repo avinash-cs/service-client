@@ -1,3 +1,5 @@
+
+const url = process.env.REACT_APP_BACKEND_URL;
 import {
   ALL_PROFS_FAIL,
   ALL_PROFS_REQUEST,
@@ -34,16 +36,7 @@ import {
   SUBMIT_REVIEW_FAIL,
 } from "../constants/userConstants";
 import axios from "axios";
-const url = process.env.REACT_APP_BACKEND_URL;
-axios.interceptors.request.use(
-  config => {
-    config.headers['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
-        return config;
-    },
-    error => {
-        return Promise.reject(error);
-    }
-);
+var url = "";
 
 export const registerUser = (userData) => async (dispatch) => {
   try {
@@ -133,9 +126,14 @@ export const updateProfile = (userData) => async (dispatch) => {
 export const loadUser = () => async (dispatch) => {
   try {
     dispatch({ type: LOAD_USER_REQUEST });
-     const config = { headers: { "Content-Type": "application/json" } };
-
-    const { data } = await axios.get(`${url}/api/v1/user/me`, config,{ withCredentials: true });
+    const token = localStorage.getItem("token");
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+       
+      },
+    };
+    const { data } = await axios.get(`${url}/api/v1/user/me`,config,{withCredentials: true});
     dispatch({ type: LOAD_USER_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: LOAD_USER_FAIL, payload: error.response.data.message });
