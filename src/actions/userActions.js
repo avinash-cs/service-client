@@ -135,7 +135,7 @@ export const loadUser = () => async (dispatch) => {
     dispatch({ type: LOAD_USER_REQUEST });
      const config = { headers: { "Content-Type": "application/json" } };
 
-    const { data } = await axios.get(`${url}/api/v1/user/me`, config);
+    const { data } = await axios.get(`${url}/api/v1/user/me`, config,{ withCredentials: true });
     dispatch({ type: LOAD_USER_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: LOAD_USER_FAIL, payload: error.response.data.message });
