@@ -17,8 +17,7 @@ import {
   GET_A_SERVICE_DETAIL_SUCCESS,
   GET_A_SERVICE_DETAIL_FAIL,
 } from "../constants/serviceConstants";
-
-var url = "https://servicefarebackend.onrender.com";
+const url = process.env.REACT_APP_BACKEND_URL;
 
 // Create service
 export const createService = (serviceData) => async (dispatch) => {
@@ -30,7 +29,7 @@ export const createService = (serviceData) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      `/api/v1/service/new`,
+      `${url}/api/v1/service/new`,
       serviceData,
       config
     );
@@ -56,7 +55,7 @@ export const createCategory = (categoryData) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      `/api/v1/service/category`,
+      `${url}/api/v1/service/category`,
       categoryData,
       config
     );
@@ -77,7 +76,7 @@ export const getAllCategories = () => async (dispatch) => {
   try {
     dispatch({ type: GET_ALL_CATEGORIES_REQUEST });
 
-    const { data } = await axios.get(`/api/v1/service/category`);
+    const { data } = await axios.get(`${url}/api/v1/service/category`);
     dispatch({
       type: GET_ALL_CATEGORIES_SUCCESS,
       payload: data.categories,
@@ -95,7 +94,7 @@ export const getAllServices = (name) => async (dispatch) => {
   try {
     dispatch({ type: GET_ALL_SERVICES_REQUEST });
     
-    const { data } = await axios.get(`/api/v1/service/${name}`);
+    const { data } = await axios.get(`${url}/api/v1/service/${name}`);
     dispatch({
       type: GET_ALL_SERVICES_SUCCESS,
       payload: data.services,
@@ -113,7 +112,7 @@ export const getServiceDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: GET_A_SERVICE_DETAIL_REQUEST });
     
-    const { data } = await axios.get(`/api/v1/service/details/${id}`);
+    const { data } = await axios.get(`${url}/api/v1/service/details/${id}`);
     dispatch({
       type: GET_A_SERVICE_DETAIL_SUCCESS,
       payload: data,

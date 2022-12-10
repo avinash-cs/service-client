@@ -16,7 +16,7 @@ import {
   ACCEPT_OR_REJECT_ORDER_REQUEST, ACCEPT_OR_REJECT_ORDER_SUCCESS
 } from "../constants/orderConstants";
 
-// var url = "https://servicefarebackend.onrender.com";
+const url = process.env.REACT_APP_BACKEND_URL;
 // add service to cart
 export const addServiceToCart = (id) => async (dispatch) => {
   try {
@@ -28,7 +28,7 @@ export const addServiceToCart = (id) => async (dispatch) => {
       },
     };
 
-    const { data } = await axios.put(`/api/v1/cart/addService/${id}`, config);
+    const { data } = await axios.put(`${url}/api/v1/cart/addService/${id}`, config);
     dispatch({ type: ADD_SERVICE_TO_CART_SUCCESS, payload: data });
   } catch (error) {
     dispatch({
@@ -42,7 +42,7 @@ export const addServiceToCart = (id) => async (dispatch) => {
 export const getServicesFromCart = () => async (dispatch) => {
   try {
     dispatch({ type: GET_SERVICES_IN_CART_REQUEST });
-    const { data } = await axios.get(`/api/v1/cart/getServicesInCart`);
+    const { data } = await axios.get(`${url}/api/v1/cart/getServicesInCart`);
     dispatch({ type: GET_SERVICES_IN_CART_SUCCESS, payload: data });
   } catch (error) {
     dispatch({
@@ -56,7 +56,7 @@ export const getServicesFromCart = () => async (dispatch) => {
 export const deleteServicesFromCart = (id) => async (dispatch) => {
   try {
     dispatch({ type: DELETE_SERVICES_IN_CART_REQUEST });
-    const { data } = await axios.delete(`/api/v1/cart/addService/${id}`);
+    const { data } = await axios.delete(`${url}/api/v1/cart/addService/${id}`);
     dispatch({ type: DELETE_SERVICES_IN_CART_SUCCESS, payload: data });
   } catch (error) {
     dispatch({
@@ -69,7 +69,7 @@ export const deleteServicesFromCart = (id) => async (dispatch) => {
 export const cancelOrder = (id) => async (dispatch) => {
   try {
       dispatch({ type: ACCEPT_OR_REJECT_ORDER_REQUEST });
-      const { data: result } = await axios.put(`/api/v1/cart/cancel/${id}`);
+      const { data: result } = await axios.put(`${url}/api/v1/cart/cancel/${id}`);
       dispatch({ type: ACCEPT_OR_REJECT_ORDER_SUCCESS, payload: result });
   } catch (error) {
       dispatch({ type: ACCEPT_OR_REJECT_ORDER_FAIL, payload: error.response.result.message });

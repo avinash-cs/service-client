@@ -34,7 +34,7 @@ import {
   SUBMIT_REVIEW_FAIL,
 } from "../constants/userConstants";
 import axios from "axios";
-var url = "";
+const url = process.env.REACT_APP_BACKEND_URL;
 
 export const registerUser = (userData) => async (dispatch) => {
   try {
@@ -44,7 +44,7 @@ export const registerUser = (userData) => async (dispatch) => {
       headers: { "Content-Type": "multipart/form-data" },
     };
     const { data } = await axios.post(
-      `/api/v1/user/register`,
+      `${url}/api/v1/user/register`,
       userData,
       config
     );
@@ -63,7 +63,7 @@ export const loginUser = (email, password) => async (dispatch) => {
 
     const config = { headers: { "Content-Type": "application/json" } };
     const { data } = await axios.post(
-      `/api/v1/user/login`,
+      `${url}/api/v1/user/login`,
       { email, password },
       config
     );
@@ -85,7 +85,7 @@ export const setupProfile = (userData) => async (dispatch) => {
     };
 
     const { data } = await axios.put(
-      `/api/v1/user/me/profile/setup`,
+      `${url}/api/v1/user/me/profile/setup`,
       userData,
       config
     );
@@ -108,7 +108,7 @@ export const updateProfile = (userData) => async (dispatch) => {
     };
 
     const { data } = await axios.put(
-      `/api/v1/user/me/profile/update`,
+      `${url}/api/v1/user/me/profile/update`,
       userData,
       config
     );
@@ -125,7 +125,7 @@ export const loadUser = () => async (dispatch) => {
   try {
     dispatch({ type: LOAD_USER_REQUEST });
 
-    const { data } = await axios.get(`/api/v1/user/me`);
+    const { data } = await axios.get(`${url}/api/v1/user/me`);
     dispatch({ type: LOAD_USER_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: LOAD_USER_FAIL, payload: error.response.data.message });
@@ -134,7 +134,7 @@ export const loadUser = () => async (dispatch) => {
 
 export const logoutUser = () => async (dispatch) => {
   try {
-    await axios.get(`/api/v1/user/logout`);
+    await axios.get(`${url}/api/v1/user/logout`);
     dispatch({ type: LOGOUT_SUCCESS });
   } catch (error) {
     dispatch({ type: LOGOUT_FAIL, payload: error.response.data.message });
@@ -145,7 +145,7 @@ export const forgotPassword = (email) => async (dispatch) => {
   try {
     dispatch({ type: FORGOT_PASSWORD_REQUEST });
     const config = { headers: { "Content-Type": "application/json" } };
-    const { data } = await axios.post(`/api/v1/user/password/forgot`, email, config);
+    const { data } = await axios.post(`${url}/api/v1/user/password/forgot`, email, config);
 
     dispatch({ type: FORGOT_PASSWORD_SUCCESS, payload: data.message });
   } catch (error) {
@@ -161,7 +161,7 @@ export const resetPassword = (token, passwords) => async (dispatch) => {
     dispatch({ type: RESET_PASSWORD_REQUEST });
     const config = { headers: { "Content-Type": "application/json" } };
     const { data } = await axios.put(
-      `/api/v1/user/password/reset/${token}`,
+      `${url}/api/v1/user/password/reset/${token}`,
       passwords,
       config
     );
@@ -180,7 +180,7 @@ export const updatePassword = (passwords) => async (dispatch) => {
     dispatch({ type: UPDATE_PASSWORD_REQUEST });
     const config = { headers: { "Content-Type": "application/json" } };
     const { data } = await axios.put(
-      `/api/v1/user/password/update`,
+      `${url}/api/v1/user/password/update`,
       passwords,
       config
     );
@@ -198,7 +198,7 @@ export const updatePassword = (passwords) => async (dispatch) => {
 export const getAllProfs = () => async (dispatch) => {
   try {
     dispatch({ type: ALL_PROFS_REQUEST });
-    const { data } = await axios.get(`/api/v1/user/professional/getAll`);
+    const { data } = await axios.get(`${url}/api/v1/user/professional/getAll`);
 
     dispatch({ type: ALL_PROFS_SUCCESS, payload: data.professionals });
   } catch (error) {
@@ -215,7 +215,7 @@ export const submitReview = (id, review) => async (dispatch) => {
         "Content-Type": "application/json"
       }
     };
-    const { data } = await axios.put(`/api/v1/user/review/new/${id}`, review, config);
+    const { data } = await axios.put(`${url}/api/v1/user/review/new/${id}`, review, config);
     dispatch({ type: SUBMIT_REVIEW_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: SUBMIT_REVIEW_FAIL, payload: error.response.data.message });
