@@ -35,6 +35,15 @@ import {
 } from "../constants/userConstants";
 import axios from "axios";
 const url = process.env.REACT_APP_BACKEND_URL;
+axios.interceptors.request.use(
+  config => {
+    config.headers['Authorization'] = `Bearer ${localStorage.getItem('access_token')}`;
+        return config;
+    },
+    error => {
+        return Promise.reject(error);
+    }
+);
 
 export const registerUser = (userData) => async (dispatch) => {
   try {
