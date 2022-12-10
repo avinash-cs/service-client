@@ -37,7 +37,7 @@ import axios from "axios";
 const url = process.env.REACT_APP_BACKEND_URL;
 axios.interceptors.request.use(
   config => {
-    config.headers['Authorization'] = `Bearer ${localStorage.getItem('access_token')}`;
+    config.headers['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
         return config;
     },
     error => {
